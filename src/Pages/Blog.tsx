@@ -3,6 +3,11 @@ import BlogBox from '../components/partials/BlogBox/BlogBox';
 import Footer from '../components/structure/Footer/Footer';
 import { blogContent, categories, tags } from '../data/pages/BlogData';
 import { scrollMedium } from '../utils/helpers/scrollTopHelper';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChevronRight,
+  faMagnifyingGlass,
+} from '@fortawesome/free-solid-svg-icons';
 
 function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -78,7 +83,10 @@ function Blog() {
                 onChange={handleSearch}
               ></input>
               <button type="submit">
-                <i className="fa-solid fa-magnifying-glass bg-[#ff0336] text-white text-[23px] h-[60px] w-[60px] rounded-br-xl rounded-tr-xl pt-[18px]"></i>
+                <FontAwesomeIcon
+                  icon={faMagnifyingGlass}
+                  className="bg-[#ff0336] text-white text-[23px] h-[24px] w-[24px] rounded-br-xl rounded-tr-xl p-[18px]"
+                />
               </button>
             </form>
 
@@ -95,7 +103,10 @@ function Blog() {
                   onClick={() => handleCategoryClick('All')}
                 >
                   <p>
-                    <i className="text-[13px] fa-solid fa-chevron-right mr-5"></i>
+                    <FontAwesomeIcon
+                      icon={faChevronRight}
+                      className="text-[13px] mr-5"
+                    />
                     All
                   </p>
                   <span>({filteredBlogContent.length})</span>
@@ -111,7 +122,10 @@ function Blog() {
                     onClick={() => handleCategoryClick(category)}
                   >
                     <p>
-                      <i className="text-[13px] fa-solid fa-chevron-right mr-5"></i>
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="text-[13px] mr-5"
+                      />
                       {category}
                     </p>
                     <span>

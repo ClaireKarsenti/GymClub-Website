@@ -7,6 +7,7 @@ import {
   schedule,
 } from '../../../data/pages/Home/FooterData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function Footer() {
   return (
@@ -36,7 +37,7 @@ function Footer() {
               </div>
               <p className="text-[16px] font-medium text-[#646464]">
                 Privacy Policy | ©{new Date().getFullYear()} Gymate <br /> Code
-                with <i className="fa-solid fa-heart"></i> by{' '}
+                with <FontAwesomeIcon icon={faHeart} /> by{' '}
                 <a
                   target="_blank"
                   rel="noreferrer"

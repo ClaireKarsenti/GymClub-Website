@@ -16,10 +16,10 @@ import {
   faLocationDot,
   faPhone,
   faEnvelope,
-  faBarcode,
   faArrowRightFromBracket,
   faPlus,
   faTimes,
+  faBars,
 } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
@@ -84,7 +84,7 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`flex flex-row bg-transparent items-center justify-between py-8 px-12  fixed top-0 left-0 right-0 w-full z-50 ${
+        className={`flex flex-row bg-transparent items-center justify-between py-8 px-12 fixed top-0 left-0 right-0 w-full z-50 ${
           sticky ? 'shadow-xl !bg-black' : ''
         }`}
       >
@@ -213,9 +213,9 @@ function Navbar() {
             </div>
 
             <FontAwesomeIcon
-              icon={faBarcode}
+              icon={faBars}
               onClick={toggleHamburgerMenu}
-              className="hidden text-white text-4xl cursor-pointer hover:text-[#FF0336] ease-in duration-200"
+              className="fa-bars hidden text-white text-4xl cursor-pointer hover:text-[#FF0336] ease-in duration-200"
             />
 
             <SmallButton

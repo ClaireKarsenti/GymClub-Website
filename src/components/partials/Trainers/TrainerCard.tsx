@@ -2,6 +2,8 @@ import { useState } from 'react';
 import TrainerBg from '../../../assets/images/trainers/trainer-bg.png';
 import Shape from '../../../assets/images/trainers/shape.png';
 import { Trainers, socials } from '../../../data/pages/Home/TrainersData';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 function TrainerCard({ img, name, job }: Trainers) {
   const [imgHover, setImgHover] = useState(false);
@@ -47,12 +49,15 @@ function TrainerCard({ img, name, job }: Trainers) {
               src={Shape}
               className="absolute -top-[25px] left-[113px]"
             />
-            <i className="fa-solid fa-angle-up absolute -top-[16px] left-[162px] text-3xl"></i>
+            <FontAwesomeIcon
+              icon={faAngleUp}
+              className="absolute -top-[16px] left-[162px] text-3xl"
+            />
             <h3 className="font-bold text-[2.4rem] ">{name}</h3>
             <p className="font-medium text-[1.5rem] text-[#646464]">{job}</p>
             <div className="flex gap-8 text-[#646464] w-full justify-center mt-5 text-[1.6rem]">
               {socials.map((social, index) => (
-                <i key={index} className={social} />
+                <FontAwesomeIcon key={index} icon={social} />
               ))}
             </div>
           </div>

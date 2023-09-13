@@ -1,5 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { bgImages } from '../../../data/pages/ClassesData';
 import BigButton from '../../globals/buttons/BigButton';
+import { faClock, faUser } from '@fortawesome/free-solid-svg-icons';
 
 export type ClassesBoxProps = {
   bgImg: string;
@@ -23,10 +25,10 @@ function ClassesBox({ bgImg, title, trainer, date }: ClassesBoxProps) {
           <span className="bg-[#ff0336] w-[50px] h-[4px]"></span>
           <div className="flex gap-6 mb-14 mt-6 text-[#ffffffe1] text-[1.6rem] font-medium">
             <p>
-              <i className="fa-regular fa-user"></i> {trainer}
+              <FontAwesomeIcon icon={faUser} /> {trainer}
             </p>
             <p>
-              <i className="fa-regular fa-clock"></i> {date}
+              <FontAwesomeIcon icon={faClock} /> {date}
             </p>
           </div>
 

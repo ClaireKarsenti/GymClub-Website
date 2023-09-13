@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { galleryImg } from '../../../data/pages/GalleryData';
 import SmallButton from '../../globals/buttons/SmallButton';
 import { scrollTop } from '../../../utils/helpers/scrollTopHelper';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 
 function GalleryGrid() {
   const itemsPerPage = 9;
@@ -34,7 +36,7 @@ function GalleryGrid() {
             to={`/gallery/page-${currentPage - 1}`}
             className="text-black inline-flex items-center justify-center text-center text-[18px] border border-solid border-[#dee2e6] w-[48px] h-[45px] font-medium rounded-md bg-white"
           >
-            <i className="fa-solid fa-angles-left"></i>
+            <FontAwesomeIcon icon={faAnglesLeft} />
           </SmallButton>
         )}
         {Array.from({ length: totalPages }).map((_, index) => (
@@ -57,7 +59,7 @@ function GalleryGrid() {
             to={`/gallery/page-${currentPage + 1}`}
             className="text-black inline-flex items-center justify-center text-center text-[18px] border border-solid border-[#dee2e6] w-[48px] h-[45px] font-medium rounded-md bg-white"
           >
-            <i className="fa-solid fa-angles-right"></i>
+            <FontAwesomeIcon icon={faAnglesRight} />
           </SmallButton>
         )}
       </div>

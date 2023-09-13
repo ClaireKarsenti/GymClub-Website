@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { scrollTop } from '../../../utils/helpers/scrollTopHelper';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export type BlogBoxProps = {
   date: string;
@@ -26,7 +28,7 @@ function BlogBox({ date, title, description, bgClass }: BlogBoxProps) {
           onClick={scrollTop}
           className="text-[15px] uppercase font-bold w-[16rem] h-[5rem] bg-[#FF0336] text-white text-center flex items-center justify-center transition-colors hover:bg-[#cc002e]"
         >
-          Read more <i className="fa-solid fa-arrow-right ml-2"></i>
+          Read more <FontAwesomeIcon icon={faArrowRight} className="ml-4" />
         </Link>
       </div>
     </div>

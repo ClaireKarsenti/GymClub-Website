@@ -4,6 +4,8 @@ import TitleBg from '../../../assets/images/pricing/titlebg.svg';
 import TestimonialBox from './TestimonialBox';
 import { logos, testimonials } from '../../../data/pages/Home/TestimonialsData';
 import SmallButton from '../../globals/buttons/SmallButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -62,7 +64,7 @@ function Testimonials() {
                   style={{ transition: 'all 0.2s' }}
                   className="py-5 px-7 bg-white text-black text-2xl hover:bg-[#FF0336] hover:text-white"
                 >
-                  <i className="fa-solid fa-arrow-left" />
+                  <FontAwesomeIcon icon={faArrowLeft} />
                 </SmallButton>
                 <SmallButton
                   title="right"
@@ -70,7 +72,7 @@ function Testimonials() {
                   style={{ transition: 'all 0.2s' }}
                   className="py-5 px-7 bg-white text-black text-2xl hover:bg-[#FF0336] hover:text-white"
                 >
-                  <i className="fa-solid fa-arrow-right" />
+                  <FontAwesomeIcon icon={faArrowRight} />
                 </SmallButton>
               </div>
             </div>

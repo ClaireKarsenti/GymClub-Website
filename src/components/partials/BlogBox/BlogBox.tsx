@@ -1,5 +1,7 @@
 import BigButton from '../../globals/buttons/BigButton';
 import { BlogContent } from '../../../data/pages/BlogData';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 
 function BlogBox({ img, title, writeAt, theme }: BlogContent) {
   return (
@@ -7,7 +9,10 @@ function BlogBox({ img, title, writeAt, theme }: BlogContent) {
       <div>
         <img src={img} alt="blog_img" />
         <p className="font-medium text-[14px] text-[#646464] pt-8 pb-4">
-          <i className="fa-solid fa-layer-group text-[#ff0336] text-[16px]"></i>
+          <FontAwesomeIcon
+            icon={faLayerGroup}
+            className="text-[#ff0336] text-[16px]"
+          />
           &nbsp; By <b>Admin</b> | {writeAt}, {new Date().getFullYear()} |{' '}
           {theme}
         </p>
