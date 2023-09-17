@@ -590,22 +590,21 @@ input[type='number']::-webkit-outer-spin-button {
 /* login */
 .login-section {
   background-image: url('../src/assets/images/who-we-are/background.jpg');
-  object-fit: cover;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
   height: 100%;
 }
 
 .login-banner {
   background-image: url('../src/assets/images/login/banner.jpg');
+  width: 100%;
+  height: 45vh;
+}
+.login-section,
+.login-banner {
   object-fit: cover;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100%;
-  height: 45vh;
 }
 
 /* classes page ----- */
