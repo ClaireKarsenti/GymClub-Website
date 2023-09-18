@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { scrollTop } from '../../../utils/helpers/scrollTopHelper';
+import { scrollTop } from 'utils/helpers/scrollTopHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 

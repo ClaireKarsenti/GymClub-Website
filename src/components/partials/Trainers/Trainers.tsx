@@ -1,5 +1,5 @@
-import { trainers } from '../../../data/pages/Home/TrainersData';
-import TitleRed from '../../../assets/images/who-we-are/title-bg.svg';
+import { trainers } from 'data/pages/Home/TrainersData';
+import TitleRed from 'assets/images/who-we-are/title-bg.svg';
 import TrainerCard from './TrainerCard';
 
 function Trainers() {

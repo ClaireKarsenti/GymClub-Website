@@ -1,8 +1,8 @@
-import Img1 from '../../../../src/assets/images/gallery/img1.jpg';
-import Img2 from '../../../../src/assets/images/gallery/img2.jpg';
-import Img3 from '../../../../src/assets/images/gallery/img3.jpg';
-import Img4 from '../../../../src/assets/images/gallery/img4.jpg';
-import Img5 from '../../../../src/assets/images/gallery/img5.jpg';
+import Img1 from 'assets/images/gallery/img1.jpg';
+import Img2 from 'assets/images/gallery/img2.jpg';
+import Img3 from 'assets/images/gallery/img3.jpg';
+import Img4 from 'assets/images/gallery/img4.jpg';
+import Img5 from 'assets/images/gallery/img5.jpg';
 
 type Image = {
   Img1: string;

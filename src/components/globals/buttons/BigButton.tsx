@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { scrollTop } from '../../../utils/helpers/scrollTopHelper';
+import { scrollTop } from 'utils/helpers/scrollTopHelper';
 
 export type BigButtonProps = {
   color?: string;

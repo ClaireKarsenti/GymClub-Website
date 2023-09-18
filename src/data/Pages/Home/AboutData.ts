@@ -1,14 +1,14 @@
-import TitleRed from '../../../assets/images/who-we-are/title-bg.svg';
-import TrainersIcon from '../../../assets/images/who-we-are/weightlifter.png';
-import ModernIcon from '../../../assets/images/who-we-are/equpments.png';
-import LiftIcon from '../../../assets/images/who-we-are/gym.png';
-import GirlRunning from '../../../assets/images/who-we-are/girl-run.png';
-import GirlRedBg from '../../../assets/images/who-we-are/girl-redbg.svg';
-import GirlText from '../../../assets/images/who-we-are/girl-side-text.png';
-import GirlWind from '../../../assets/images/who-we-are/wind.png';
-import ProgressionImg from '../../../assets/images/who-we-are/progresion.png';
-import WorkoutImg from '../../../assets/images/who-we-are/workout.png';
-import NutritionImg from '../../../assets/images/who-we-are/nutritions.png';
+import TitleRed from 'assets/images/who-we-are/title-bg.svg';
+import TrainersIcon from 'assets/images/who-we-are/weightlifter.png';
+import ModernIcon from 'assets/images/who-we-are/equpments.png';
+import LiftIcon from 'assets/images/who-we-are/gym.png';
+import GirlRunning from 'assets/images/who-we-are/girl-run.png';
+import GirlRedBg from 'assets/images/who-we-are/girl-redbg.svg';
+import GirlText from 'assets/images/who-we-are/girl-side-text.png';
+import GirlWind from 'assets/images/who-we-are/wind.png';
+import ProgressionImg from 'assets/images/who-we-are/progresion.png';
+import WorkoutImg from 'assets/images/who-we-are/workout.png';
+import NutritionImg from 'assets/images/who-we-are/nutritions.png';
 
 type Card = {
   img: string;

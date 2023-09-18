@@ -6,8 +6,8 @@ import {
   presentationText,
   icons,
   images,
-} from '../../../data/pages/Home/AboutData';
-import { scrollTop } from '../../../utils/helpers/scrollTopHelper';
+} from 'data/pages/Home/AboutData';
+import { scrollTop } from 'utils/helpers/scrollTopHelper';
 
 function About() {
   return (

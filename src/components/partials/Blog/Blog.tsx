@@ -1,6 +1,6 @@
-import TitleRed from '../../../assets/images/who-we-are/title-bg.svg';
+import TitleRed from 'assets/images/who-we-are/title-bg.svg';
 import BlogBox from './BlogBox';
-import { blogContent } from '../../../data/pages/Home/BlogData';
+import { blogContent } from 'data/pages/Home/BlogData';
 
 function Blog() {
   return (

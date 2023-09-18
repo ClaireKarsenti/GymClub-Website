@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { bgImages } from '../../../data/pages/ClassesData';
+import { bgImages } from 'data/pages/ClassesData';
 import BigButton from '../../globals/buttons/BigButton';
 import { faClock, faUser } from '@fortawesome/free-solid-svg-icons';
 

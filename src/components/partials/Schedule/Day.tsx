@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import RoundedButton from '../../globals/buttons/RoundedButton';
-import { days, classesByDay, Days } from '../../../data/pages/ScheduleData';
+import { days, classesByDay, Days } from 'data/pages/ScheduleData';
 import ClassCard from './ClassCard';
 
 type DayProps = {

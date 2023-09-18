@@ -1,6 +1,6 @@
-import TitleRed from '../../../assets/images/who-we-are/title-bg.svg';
+import TitleRed from 'assets/images/who-we-are/title-bg.svg';
 import BigButton from '../../globals/buttons/BigButton';
-import { video, text, equipments } from '../../../data/pages/Home/ChooseUsData';
+import { video, text, equipments } from 'data/pages/Home/ChooseUsData';
 
 function ChooseUs() {
   return (

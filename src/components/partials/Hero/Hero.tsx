@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { socials } from '../../../data/layout/NavbarData';
-import TitleBg from '../../../assets/images/pricing/titlebg.svg';
+import { socials } from 'data/layout/NavbarData';
+import TitleBg from 'assets/images/pricing/titlebg.svg';
 import BigButton from '../../globals/buttons/BigButton';
 
 function Hero() {

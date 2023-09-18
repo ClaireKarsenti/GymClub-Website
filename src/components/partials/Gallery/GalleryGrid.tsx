@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { galleryImg } from '../../../data/pages/GalleryData';
+import { galleryImg } from 'data/pages/GalleryData';
 import SmallButton from '../../globals/buttons/SmallButton';
-import { scrollTop } from '../../../utils/helpers/scrollTopHelper';
+import { scrollTop } from 'utils/helpers/scrollTopHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 

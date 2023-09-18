@@ -1,6 +1,6 @@
-import Quotes from '../../../assets/images/testimonials/quotes.png';
-import BoxShape from '../../../assets/images/testimonials/testimonial-shape.svg';
-import { Testimonials } from '../../../data/pages/Home/TestimonialsData';
+import Quotes from 'assets/images/testimonials/quotes.png';
+import BoxShape from 'assets/images/testimonials/testimonial-shape.svg';
+import { Testimonials } from 'data/pages/Home/TestimonialsData';
 
 function TestimonialBox({
   text,

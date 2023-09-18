@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import TrainerBg from '../../../assets/images/trainers/trainer-bg.png';
-import Shape from '../../../assets/images/trainers/shape.png';
-import { Trainers, socials } from '../../../data/pages/Home/TrainersData';
+import TrainerBg from 'assets/images/trainers/trainer-bg.png';
+import Shape from 'assets/images/trainers/shape.png';
+import { Trainers, socials } from 'data/pages/Home/TrainersData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 

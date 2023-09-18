@@ -1,11 +1,7 @@
 import { Link } from 'react-router-dom';
-import { scrollTop } from '../../../utils/helpers/scrollTopHelper';
-import FooterLogo from '../../../assets/images/logo/logo-footer.svg';
-import {
-  socials,
-  classes,
-  schedule,
-} from '../../../data/pages/Home/FooterData';
+import { scrollTop } from 'utils/helpers/scrollTopHelper';
+import FooterLogo from 'assets/images/logo/logo-footer.svg';
+import { socials, classes, schedule } from 'data/pages/Home/FooterData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 

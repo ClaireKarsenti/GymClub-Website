@@ -1,6 +1,6 @@
-import Img1 from '../../../assets/images/pricing/img1.jpg';
-import Img2 from '../../../assets/images/pricing/img2.jpg';
-import Img3 from '../../../assets/images/pricing/img3.jpg';
+import Img1 from 'assets/images/pricing/img1.jpg';
+import Img2 from 'assets/images/pricing/img2.jpg';
+import Img3 from 'assets/images/pricing/img3.jpg';
 
 export type Plan = {
   type: string;

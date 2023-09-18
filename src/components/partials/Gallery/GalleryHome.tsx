@@ -1,6 +1,6 @@
-import TitleRed from '../../../assets/images/who-we-are/title-bg.svg';
-import BgIcon from '../../../assets/images/gallery/bg-icon.png';
-import { galleryImg } from '../../../data/pages/Home/GalleryData';
+import TitleRed from 'assets/images/who-we-are/title-bg.svg';
+import BgIcon from 'assets/images/gallery/bg-icon.png';
+import { galleryImg } from 'data/pages/Home/GalleryData';
 
 function Gallery() {
   return (

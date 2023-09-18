@@ -1,5 +1,5 @@
 import BigButton from '../../globals/buttons/BigButton';
-import { Plan } from '../../../data/pages/Home/PricingData';
+import { Plan } from 'data/pages/Home/PricingData';
 
 function PricingCard({ type, img, price, pack }: Plan) {
   return (

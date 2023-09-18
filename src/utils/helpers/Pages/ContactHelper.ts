@@ -1,4 +1,4 @@
-import { ClassItem } from '../../../pages/Contact';
+import { ClassItem } from 'pages/Contact';
 
 export const uniqueClasses = (classes: ClassItem[]): ClassItem[] => {
   return classes.filter(

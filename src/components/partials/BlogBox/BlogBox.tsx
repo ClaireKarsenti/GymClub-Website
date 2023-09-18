@@ -1,5 +1,5 @@
 import BigButton from '../../globals/buttons/BigButton';
-import { BlogContent } from '../../../data/pages/BlogData';
+import { BlogContent } from 'data/pages/BlogData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 

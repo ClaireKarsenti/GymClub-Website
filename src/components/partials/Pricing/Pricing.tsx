@@ -1,8 +1,8 @@
-import TitleRed from '../../../assets/images/who-we-are/title-bg.svg';
-import BgText from '../../../assets/images/pricing/bg-text.png';
-import BgDumbell from '../../../assets/images/pricing/bg-dumbell.png';
+import TitleRed from 'assets/images/who-we-are/title-bg.svg';
+import BgText from 'assets/images/pricing/bg-text.png';
+import BgDumbell from 'assets/images/pricing/bg-dumbell.png';
 import PricingCard from './PricingCard';
-import { plans } from '../../../data/pages/Home/PricingData';
+import { plans } from 'data/pages/Home/PricingData';
 
 function Pricing() {
   return (

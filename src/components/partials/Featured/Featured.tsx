@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import TitleRed from '../../../assets/images/who-we-are/title-bg.svg';
+import TitleRed from 'assets/images/who-we-are/title-bg.svg';
 import BigButton from '../../globals/buttons/BigButton';
-import { titles, schedule } from '../../../data/pages/Home/FeaturedData';
-import { scrollTop } from '../../../utils/helpers/scrollTopHelper';
+import { titles, schedule } from 'data/pages/Home/FeaturedData';
+import { scrollTop } from 'utils/helpers/scrollTopHelper';
 
 function Featured() {
   const day = (item: string) => (item === 'monday' ? item : item.toLowerCase());

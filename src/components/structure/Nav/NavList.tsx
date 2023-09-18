@@ -1,5 +1,5 @@
-import { scrollTop } from '../../../utils/helpers/scrollTopHelper';
-import { links } from '../../../data/layout/NavbarData';
+import { scrollTop } from 'utils/helpers/scrollTopHelper';
+import { links } from 'data/layout/NavbarData';
 
 function NavList() {
   return (

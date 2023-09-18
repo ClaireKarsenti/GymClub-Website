@@ -1,9 +1,9 @@
-import VideoImg from '../../../assets/images/choose-us/main-img.png';
-import TrainingIcon from '../../../assets/images/choose-us/training.png';
-import EquipmentsIcon from '../../../assets/images/choose-us/bench-press.png';
-import BagIcon from '../../../assets/images/choose-us/gym-bag.png';
-import WaterBottleIcon from '../../../assets/images/choose-us/bottle-of-water.png';
-import PlayImg from '../../../assets/images/choose-us/play.png';
+import VideoImg from 'assets/images/choose-us/main-img.png';
+import TrainingIcon from 'assets/images/choose-us/training.png';
+import EquipmentsIcon from 'assets/images/choose-us/bench-press.png';
+import BagIcon from 'assets/images/choose-us/gym-bag.png';
+import WaterBottleIcon from 'assets/images/choose-us/bottle-of-water.png';
+import PlayImg from 'assets/images/choose-us/play.png';
 
 type Video = {
   img: string;

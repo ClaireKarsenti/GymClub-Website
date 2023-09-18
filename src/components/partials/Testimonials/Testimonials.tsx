@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import TestimonialImg from '../../../assets/images/testimonials/testimonial-new.jpg';
-import TitleBg from '../../../assets/images/pricing/titlebg.svg';
+import TestimonialImg from 'assets/images/testimonials/testimonial-new.jpg';
+import TitleBg from 'assets/images/pricing/titlebg.svg';
 import TestimonialBox from './TestimonialBox';
-import { logos, testimonials } from '../../../data/pages/Home/TestimonialsData';
+import { logos, testimonials } from 'data/pages/Home/TestimonialsData';
 import SmallButton from '../../globals/buttons/SmallButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';

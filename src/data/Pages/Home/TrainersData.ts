@@ -1,6 +1,6 @@
-import Trainer1 from '../../../assets/images/trainers/trainer1.png';
-import Trainer2 from '../../../assets/images/trainers/trainer2.png';
-import Trainer3 from '../../../assets/images/trainers/trainer3.png';
+import Trainer1 from 'assets/images/trainers/trainer1.png';
+import Trainer2 from 'assets/images/trainers/trainer2.png';
+import Trainer3 from 'assets/images/trainers/trainer3.png';
 import {
   faFacebook,
   faTwitter,
