@@ -1,10 +1,10 @@
-import Footer from '../components/structure/Footer/Footer';
-import BigButton from '../components/globals/buttons/BigButton';
-import TitleRed from '../assets/images/who-we-are/title-bg.svg';
-import Target from '../assets/images/AboutPage/target.png';
-import Mountain from '../assets/images/AboutPage/mountain.png';
-import { images } from '../data/pages/Home/AboutData';
-import { images as img, texts } from '../data/pages/AboutData';
+import Footer from 'components/structure/Footer/Footer';
+import BigButton from 'components/globals/buttons/BigButton';
+import TitleRed from 'assets/images/who-we-are/title-bg.svg';
+import Target from 'assets/images/AboutPage/target.png';
+import Mountain from 'assets/images/AboutPage/mountain.png';
+import { images } from 'data/pages/Home/AboutData';
+import { images as img, texts } from 'data/pages/AboutData';
 
 function About() {
   return (

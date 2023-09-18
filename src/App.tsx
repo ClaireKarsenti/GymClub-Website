@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import { AuthContextProvider } from './utils/context/AuthContext';
-import Navbar from './components/structure/Nav/Navbar';
-import Day from './components/partials/Schedule/Day';
+import { AuthContextProvider } from 'utils/context/AuthContext';
+import Navbar from 'components/structure/Nav/Navbar';
+import Day from 'components/partials/Schedule/Day';
 import {
   About,
   Contact,
@@ -14,8 +14,8 @@ import {
   Schedule,
   GalleryPage,
   GalleryGrid,
-} from './pages/index';
-import { days } from './data/pages/ScheduleData';
+} from 'pages/index';
+import { days } from 'data/pages/ScheduleData';
 
 function App() {
   return (
