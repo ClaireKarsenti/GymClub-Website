@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import BlogBox from '../components/partials/BlogBox/BlogBox';
-import Footer from '../components/structure/Footer/Footer';
-import { blogContent, categories, tags } from '../data/pages/BlogData';
-import { scrollMedium } from '../utils/helpers/scrollTopHelper';
+import BlogBox from 'components/partials/BlogBox/BlogBox';
+import Footer from 'components/structure/Footer/Footer';
+import { blogContent, categories, tags } from 'data/pages/BlogData';
+import { scrollMedium } from 'utils/helpers/scrollTopHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronRight,

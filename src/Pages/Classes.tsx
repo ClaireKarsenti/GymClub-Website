@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import ClassesBox from '../components/partials/ClassesBox/ClassesBox';
-import Footer from '../components/structure/Footer/Footer';
-import SmallButton from '../components/globals/buttons/SmallButton';
-import { classesBox } from '../data/pages/ClassesData';
+import ClassesBox from 'components/partials/ClassesBox/ClassesBox';
+import Footer from 'components/structure/Footer/Footer';
+import SmallButton from 'components/globals/buttons/SmallButton';
+import { classesBox } from 'data/pages/ClassesData';
 
 function Classes() {
   const [showMore, setShowMore] = useState(false);

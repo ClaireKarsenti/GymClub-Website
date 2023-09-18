@@ -1,9 +1,9 @@
-import SideImg1 from '../../assets/images/sidebar/1.jpg';
-import SideImg2 from '../../assets/images/sidebar/2.jpg';
-import SideImg3 from '../../assets/images/sidebar/3.jpg';
-import SideImg4 from '../../assets/images/sidebar/4.jpg';
-import SideImg5 from '../../assets/images/sidebar/5.jpg';
-import SideImg6 from '../../assets/images/sidebar/6.jpg';
+import SideImg1 from 'assets/images/sidebar/1.jpg';
+import SideImg2 from 'assets/images/sidebar/2.jpg';
+import SideImg3 from 'assets/images/sidebar/3.jpg';
+import SideImg4 from 'assets/images/sidebar/4.jpg';
+import SideImg5 from 'assets/images/sidebar/5.jpg';
+import SideImg6 from 'assets/images/sidebar/6.jpg';
 import {
   faFacebook,
   faTwitter,

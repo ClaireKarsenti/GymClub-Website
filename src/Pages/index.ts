@@ -8,4 +8,4 @@ export { default as Blog } from './Blog';
 export { default as About } from './About';
 export { default as Schedule } from './Schedule';
 export { default as GalleryPage } from './Gallery';
-export { default as GalleryGrid } from '../components/partials/Gallery/GalleryGrid';
+export { default as GalleryGrid } from 'components/partials/Gallery/GalleryGrid';

@@ -3,22 +3,22 @@ type BgImages = {
 };
 
 const bgImages: BgImages = {
-  cycling: require('../../assets/images/classes/cycling.png'),
-  meditation: require('../../assets/images/classes/meditation.jpg'),
-  mma: require('../../assets/images/classes/mma.jpg'),
-  karate: require('../../assets/images/classes/karate.jpg'),
-  powerlifting: require('../../assets/images/classes/powerlifting.jpg'),
-  workout: require('../../assets/images/classes/workout.jpg'),
-  crossfit: require('../../assets/images/classes/crossfit.jpg'),
-  running: require('../../assets/images/classes/running.jpg'),
-  barre: require('../../assets/images/classes/barre.png'),
-  bodybuilding: require('../../assets/images/classes/bodybuilding.jpg'),
-  flyingyoga: require('../../assets/images/classes/flyingyoga.png'),
-  trx: require('../../assets/images/classes/trx.png'),
-  step: require('../../assets/images/classes/step.png'),
-  box: require('../../assets/images/classes/box.jpg'),
-  fitness: require('../../assets/images/classes/fitness.jpg'),
-  yoga: require('../../assets/images/classes/yoga.jpg'),
+  cycling: require('assets/images/classes/cycling.png'),
+  meditation: require('assets/images/classes/meditation.jpg'),
+  mma: require('assets/images/classes/mma.jpg'),
+  karate: require('assets/images/classes/karate.jpg'),
+  powerlifting: require('assets/images/classes/powerlifting.jpg'),
+  workout: require('assets/images/classes/workout.jpg'),
+  crossfit: require('assets/images/classes/crossfit.jpg'),
+  running: require('assets/images/classes/running.jpg'),
+  barre: require('assets/images/classes/barre.png'),
+  bodybuilding: require('assets/images/classes/bodybuilding.jpg'),
+  flyingyoga: require('assets/images/classes/flyingyoga.png'),
+  trx: require('assets/images/classes/trx.png'),
+  step: require('assets/images/classes/step.png'),
+  box: require('assets/images/classes/box.jpg'),
+  fitness: require('assets/images/classes/fitness.jpg'),
+  yoga: require('assets/images/classes/yoga.jpg'),
 };
 
 type ClassesBox = {

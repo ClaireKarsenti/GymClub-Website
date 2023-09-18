@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Footer from '../components/structure/Footer/Footer';
+import Footer from 'components/structure/Footer/Footer';
 
 function GalleryPage() {
   return (

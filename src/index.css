@@ -41,7 +41,7 @@ body {
 }
 
 .hero-section {
-  background-image: url('../src/assets/images/hero/hero-img.jpg');
+  background-image: url('assets/images/hero/hero-img.jpg');
   width: 100%;
   height: 110vh;
   object-fit: cover;
@@ -82,7 +82,7 @@ body {
 }
 
 .about-section {
-  background-image: url('../src/assets/images/who-we-are/background.jpg');
+  background-image: url('assets/images/who-we-are/background.jpg');
   object-fit: cover;
   background-size: cover;
   background-position: center center;
@@ -95,7 +95,7 @@ body {
 }
 
 .card-item-div:hover {
-  background-image: url('../src/assets/images/who-we-are/info-card-bg.jpg');
+  background-image: url('assets/images/who-we-are/info-card-bg.jpg');
   color: white;
 }
 
@@ -210,37 +210,37 @@ body {
 }
 
 .item-0-div::before {
-  content: url('../src/assets/images/features/gym-bike.png');
+  content: url('assets/images/features/gym-bike.png');
   left: -25px;
   bottom: 45%;
 }
 
 .item-1-div::before {
-  content: url('../src/assets/images/features/karate.png');
+  content: url('assets/images/features/karate.png');
   left: -1px;
   bottom: 45%;
 }
 
 .item-2-div::before {
-  content: url('../src/assets/images/features/dumbbell.png');
+  content: url('assets/images/features/dumbbell.png');
   left: -1px;
   bottom: 45%;
 }
 
 .item-3-div::before {
-  content: url('../src/assets/images/features/yoga.png');
+  content: url('assets/images/features/yoga.png');
   left: -1px;
   bottom: 45%;
 }
 
 .item-4-div::before {
-  content: url('../src/assets/images/features/boxer.png');
+  content: url('assets/images/features/boxer.png');
   left: -1px;
   bottom: 45%;
 }
 
 .item-5-div::before {
-  content: url('../src/assets/images/features/workout.png');
+  content: url('assets/images/features/workout.png');
   left: -25px;
   bottom: 45%;
 }
@@ -255,27 +255,27 @@ body {
 }
 
 .item-0-div:hover:before {
-  content: url('../src/assets/images/features/bike-red.png');
+  content: url('assets/images/features/bike-red.png');
 }
 
 .item-1-div:hover:before {
-  content: url('../src/assets/images/features/karate-red.png');
+  content: url('assets/images/features/karate-red.png');
 }
 
 .item-2-div:hover:before {
-  content: url('../src/assets/images/features/dumb-red.png');
+  content: url('assets/images/features/dumb-red.png');
 }
 
 .item-3-div:hover:before {
-  content: url('../src/assets/images/features/yoga-red.png');
+  content: url('assets/images/features/yoga-red.png');
 }
 
 .item-4-div:hover:before {
-  content: url('../src/assets/images/features/boxer-red.png');
+  content: url('assets/images/features/boxer-red.png');
 }
 
 .item-5-div:hover:before {
-  content: url('../src/assets/images/features/workout-red.png');
+  content: url('assets/images/features/workout-red.png');
 }
 
 /* grid items */
@@ -362,7 +362,7 @@ body {
 
 /* end of grid ^^ */
 .featured-cta {
-  background-image: url(../src/assets/images/features/cta-bg.png);
+  background-image: url(assets/images/features/cta-bg.png);
   width: 100%;
   height: 21rem;
   background-position: center center;
@@ -372,7 +372,7 @@ body {
 
 /* choose us */
 .choose-section {
-  background-image: url('../src/assets/images/choose-us/choose-bg.jpg');
+  background-image: url('assets/images/choose-us/choose-bg.jpg');
   object-fit: cover;
   background-size: cover;
   background-position: center center;
@@ -417,7 +417,7 @@ body {
 
 /* trainers section */
 .trainers-section {
-  background-image: url('../src/assets/images/trainers/dot-bg.png');
+  background-image: url('assets/images/trainers/dot-bg.png');
   object-fit: cover;
   background-size: cover;
   background-position: center center;
@@ -427,7 +427,7 @@ body {
 }
 
 .trainers-section::after {
-  content: url('../src/assets/images/trainers/bg-attachment.png');
+  content: url('assets/images/trainers/bg-attachment.png');
   position: absolute;
   top: 0;
   right: 0;
@@ -533,7 +533,7 @@ body {
 
 /* bmi section */
 .bmi-section {
-  background-image: url('../src/assets/images/bmi/background.jpg');
+  background-image: url('assets/images/bmi/background.jpg');
   object-fit: cover;
   background-size: cover;
   background-position: center right;
@@ -548,7 +548,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 /* price section */
 .pricing-section {
-  background-image: url('../src/assets/images/pricing/background.jpg');
+  background-image: url('assets/images/pricing/background.jpg');
   object-fit: cover;
   background-size: cover;
   background-position: center;
@@ -570,7 +570,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 /* blog section */
 .cta-section {
-  background-image: url('../src//assets/images/call/background.jpg');
+  background-image: url('assets/images/call/background.jpg');
   object-fit: cover;
   background-size: cover;
   background-position: center;
@@ -589,13 +589,13 @@ input[type='number']::-webkit-outer-spin-button {
 
 /* login */
 .login-section {
-  background-image: url('../src/assets/images/who-we-are/background.jpg');
+  background-image: url('assets/images/who-we-are/background.jpg');
   width: 100%;
   height: 100%;
 }
 
 .login-banner {
-  background-image: url('../src/assets/images/login/banner.jpg');
+  background-image: url('assets/images/login/banner.jpg');
   width: 100%;
   height: 45vh;
 }
@@ -622,7 +622,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .blog-banner {
-  background-image: url('../src/assets/images/blogpage/sidebar1.png');
+  background-image: url('assets/images/blogpage/sidebar1.png');
   object-fit: cover;
   background-size: cover;
   background-position: center;

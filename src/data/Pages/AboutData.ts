@@ -1,5 +1,5 @@
-import Img3 from '../../assets/images/AboutPage/3.jpg';
-import Img4 from '../../assets/images/AboutPage/4.jpg';
+import Img3 from 'assets/images/AboutPage/3.jpg';
+import Img4 from 'assets/images/AboutPage/4.jpg';
 
 type Images = {
   Img3: string;

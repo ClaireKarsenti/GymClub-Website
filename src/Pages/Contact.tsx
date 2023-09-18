@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { UserAuth } from '../utils/context/AuthContext';
-import Footer from '../components/structure/Footer/Footer';
-import SmallButton from '../components/globals/buttons/SmallButton';
-import Input from '../components/globals/Input';
-import InfoBox from '../components/partials/Contact/InfoBox';
-import { socials } from '../data/pages/Home/ContactData';
-import { text, leaveInfo } from '../data/pages/ContactData';
-import { classesBox } from '../data/pages/ClassesData';
+import { UserAuth } from 'utils/context/AuthContext';
+import Footer from 'components/structure/Footer/Footer';
+import SmallButton from 'components/globals/buttons/SmallButton';
+import Input from 'components/globals/Input';
+import InfoBox from 'components/partials/Contact/InfoBox';
+import { socials } from 'data/pages/Home/ContactData';
+import { text, leaveInfo } from 'data/pages/ContactData';
+import { classesBox } from 'data/pages/ClassesData';
 import {
   uniqueClasses,
   sortClassesAlphabetically,
-} from '../utils/helpers/Pages/ContactHelper';
+} from 'utils/helpers/Pages/ContactHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export type ClassItem = {

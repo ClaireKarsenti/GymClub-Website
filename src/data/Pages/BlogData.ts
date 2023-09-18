@@ -1,16 +1,16 @@
-import Img1 from '../../assets/images/blogpage/1.jpg';
-import Img2 from '../../assets/images/blogpage/2.jpg';
-import Img3 from '../../assets/images/blogpage/3.jpg';
-import Img4 from '../../assets/images/blogpage/4.jpg';
-import Img5 from '../../assets/images/blogpage/5.jpg';
-import Img6 from '../../assets/images/blogpage/6.jpg';
-import Img7 from '../../assets/images/blogpage/7.jpg';
-import Recent1 from '../../assets/images/blogpage/recent1.jpg';
-import Recent2 from '../../assets/images/blogpage/recent2.jpg';
-import Recent3 from '../../assets/images/blogpage/recent3.jpg';
-import Recent4 from '../../assets/images/blogpage/recent4.jpg';
-import Recent5 from '../../assets/images/blogpage/recent5.jpg';
-import Recent6 from '../../assets/images/blogpage/recent6.jpg';
+import Img1 from 'assets/images/blogpage/1.jpg';
+import Img2 from 'assets/images/blogpage/2.jpg';
+import Img3 from 'assets/images/blogpage/3.jpg';
+import Img4 from 'assets/images/blogpage/4.jpg';
+import Img5 from 'assets/images/blogpage/5.jpg';
+import Img6 from 'assets/images/blogpage/6.jpg';
+import Img7 from 'assets/images/blogpage/7.jpg';
+import Recent1 from 'assets/images/blogpage/recent1.jpg';
+import Recent2 from 'assets/images/blogpage/recent2.jpg';
+import Recent3 from 'assets/images/blogpage/recent3.jpg';
+import Recent4 from 'assets/images/blogpage/recent4.jpg';
+import Recent5 from 'assets/images/blogpage/recent5.jpg';
+import Recent6 from 'assets/images/blogpage/recent6.jpg';
 
 export type BlogContent = {
   img: string;

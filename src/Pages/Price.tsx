@@ -1,5 +1,5 @@
-import Footer from '../components/structure/Footer/Footer';
-import Pricing from '../components/partials/Pricing/Pricing';
+import Footer from 'components/structure/Footer/Footer';
+import Pricing from 'components/partials/Pricing/Pricing';
 
 function Price() {
   return (

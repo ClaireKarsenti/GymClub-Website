@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserAuth } from '../utils/context/AuthContext';
-import { scrollTop } from '../utils/helpers/scrollTopHelper';
-import Footer from '../components/structure/Footer/Footer';
-import SmallButton from '../components/globals/buttons/SmallButton';
-import Input from '../components/globals/Input';
-import { login } from '../data/pages/LogData';
+import { UserAuth } from 'utils/context/AuthContext';
+import { scrollTop } from 'utils/helpers/scrollTopHelper';
+import Footer from 'components/structure/Footer/Footer';
+import SmallButton from 'components/globals/buttons/SmallButton';
+import Input from 'components/globals/Input';
+import { login } from 'data/pages/LogData';
 
 function Login() {
   const [email, setEmail] = useState<string>('');
