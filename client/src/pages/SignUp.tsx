@@ -28,14 +28,29 @@ function Signup() {
     return <div>Loading...</div>;
   }
 
-  const { signUp, user: authUser } = authContext;
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
     try {
-      await signUp(email, password, firstName, lastName);
-      scrollTop();
+      const response = await fetch('http://localhost:3001/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        navigate('/#home');
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.error);
+      }
     } catch (error) {
       if (error instanceof Error) {
         console.log(error);
@@ -43,11 +58,6 @@ function Signup() {
       }
     }
   };
-
-  if (authUser) {
-    navigate('/#home');
-    return null;
-  }
 
   return (
     <>
