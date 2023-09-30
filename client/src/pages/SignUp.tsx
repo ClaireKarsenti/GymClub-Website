@@ -32,7 +32,7 @@ function Signup() {
     e.preventDefault();
     setError('');
     try {
-      const response = await fetch('http://localhost:3001/signup', {
+      const response = await fetch('http://localhost:3001/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
