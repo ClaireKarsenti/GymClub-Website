@@ -1,9 +1,10 @@
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import User from '../models/User.js';
+import jwt, { Secret } from 'jsonwebtoken';
+import User, { IUser } from '../models/User.js';
 import { Request, Response } from 'express';
 
-export const signup = async (
+/* REGISTER USER */
+export const register = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
@@ -33,6 +34,32 @@ export const signup = async (
   } catch (error: unknown) {
     if (error instanceof Error) {
       return res.status(500).json({ error: error.message });
+    }
+    return res.status(500).json({ error: 'An error occurred.' });
+  }
+};
+
+export const login = async (req: Request, res: Response): Promise<Response> => {
+  try {
+    const { email, password } = req.body;
+    const user: IUser | null = await User.findOne({ email: email });
+    if (!user) return res.status(400).json({ msg: 'User does not exist.' });
+
+    const isMatch: boolean = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ msg: 'Invalid credentials.' });
+
+    const token: string = jwt.sign(
+      { id: user._id },
+      process.env.JWT_SECRET as Secret
+    );
+
+    const userWithoutPassword = { ...user.toObject() };
+    delete userWithoutPassword.password;
+
+    return res.status(200).json({ token, user: userWithoutPassword });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return res.status(500).json({ error: err.message });
     }
     return res.status(500).json({ error: 'An error occurred.' });
   }
