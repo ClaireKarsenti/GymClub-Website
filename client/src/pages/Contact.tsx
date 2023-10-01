@@ -105,7 +105,9 @@ function Login() {
               placeholder="Comment"
               className="w-full py-[12px] px-[20px] h-[140px] text-[14px] border border-solid border-[#e4e4e4] outline-none mb-8"
             />
-            <span>*Email address is required</span>
+            
+            {!user && <span>*Email address is required</span>}
+
             <SmallButton
               type="submit"
               className="text-white bg-[#ff0336] w-fit py-[15px] px-[30px] font-bold text-[14px] uppercase self-center mt-6"
