@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { UserAuth } from 'utils/context/AuthContext';
+import { useSelector } from 'react-redux';
 import Footer from 'components/structure/Footer/Footer';
 import SmallButton from 'components/globals/buttons/SmallButton';
 import Input from 'components/globals/Input';
@@ -22,16 +22,13 @@ function Login() {
   const [email, setEmail] = useState<string>('');
   const [fullName, setFullName] = useState<string>('');
 
-  const authContext = UserAuth();
-
+  const user = useSelector((state: any) => state.user);
   useEffect(() => {
-    if (authContext && authContext.user) {
-      setEmail(authContext.user.email || '');
-      setFullName(
-        authContext.user.firstName + ' ' + authContext.user.lastName || ''
-      );
+    if (user) {
+      setEmail(user.email || '');
+      setFullName(user.firstName + ' ' + user.lastName || '');
     }
-  }, [authContext]);
+  }, [user]);
 
   // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();

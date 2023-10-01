@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserAuth } from 'utils/context/AuthContext';
-import { auth } from 'utils/firebase/firebase';
 import { scrollTop } from 'utils/helpers/scrollTopHelper';
+import { useDispatch, useSelector } from 'react-redux';
+import { AuthState, setLogout } from '../../../state/authSlice';
 import Logo from 'assets/images/logo/logo.svg';
 import LogoSide from 'assets/images/logo/logo.svg';
 import NavList from './NavList';
@@ -27,13 +27,14 @@ function Navbar() {
   const [sticky, setSticky] = useState(false);
   const [sideBar, setSideBar] = useState(false);
   const [hamburger, setHamburger] = useState(false);
+  const isAuth = useSelector((state: AuthState) => state.token !== null);
 
-  const authContext = UserAuth();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
-      await auth.signOut();
+      dispatch(setLogout());
       navigate('/login');
       scrollTop();
     } catch (error) {
@@ -218,11 +219,9 @@ function Navbar() {
               className="fa-bars hidden text-white text-4xl cursor-pointer hover:text-[#FF0336] ease-in duration-200"
             />
 
-            <SmallButton
-              onClick={authContext?.user ? handleLogout : handleLogin}
-            >
+            <SmallButton onClick={isAuth ? handleLogout : handleLogin}>
               <FontAwesomeIcon
-                icon={authContext?.user ? faArrowRightFromBracket : faUser}
+                icon={isAuth ? faArrowRightFromBracket : faUser}
                 className="text-white text-4xl cursor-pointer hover:text-[#FF0336] ease-in duration-200"
               />
             </SmallButton>

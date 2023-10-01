@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserAuth } from 'utils/context/AuthContext';
 import { scrollTop } from 'utils/helpers/scrollTopHelper';
 import Footer from 'components/structure/Footer/Footer';
 import SmallButton from 'components/globals/buttons/SmallButton';
 import Input from 'components/globals/Input';
 import { signup } from 'data/pages/LogData';
+import { useDispatch } from 'react-redux';
+import { setLogin } from '../state/authSlice';
 
 function Signup() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [firstName, setFirstName] = useState<string>('');
@@ -22,15 +24,11 @@ function Signup() {
   };
 
   const navigate = useNavigate();
-  const authContext = UserAuth();
-
-  if (!authContext) {
-    return <div>Loading...</div>;
-  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
+
     try {
       const response = await fetch('http://localhost:3001/auth/register', {
         method: 'POST',
@@ -46,7 +44,14 @@ function Signup() {
       });
 
       if (response.ok) {
-        navigate('/#home');
+        const userData = await response.json();
+        navigate('/#login');
+        dispatch(
+          setLogin({
+            user: userData.user,
+            token: userData.token,
+          })
+        );
       } else {
         const errorData = await response.json();
         throw new Error(errorData.error);
@@ -58,7 +63,6 @@ function Signup() {
       }
     }
   };
-
   return (
     <>
       <section className="login-section">

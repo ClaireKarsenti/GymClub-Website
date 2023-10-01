@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserAuth } from 'utils/context/AuthContext';
+import { useDispatch } from 'react-redux';
+import { setLogin } from '../state/authSlice';
 import { scrollTop } from 'utils/helpers/scrollTopHelper';
 import Footer from 'components/structure/Footer/Footer';
 import SmallButton from 'components/globals/buttons/SmallButton';
@@ -12,27 +13,39 @@ function Login() {
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const authContext = UserAuth();
-
-  if (!authContext) {
-    return <div>Loading...</div>;
-  }
-
-  const { logIn } = authContext;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
     try {
-      await logIn(email, password);
-      navigate('/#home');
-      scrollTop();
-    } catch (error) {
-      if (error instanceof Error) {
-        console.log(error);
-        setError(error.message);
+      const response = await fetch('http://localhost:3001/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const userData = await response.json();
+        dispatch(
+          setLogin({
+            user: userData.user,
+            token: userData.token,
+          })
+        );
+
+        navigate('/#home');
+        scrollTop();
+      } else {
+        const data = await response.json();
+        setError(data.msg || 'An error occurred during authentication.');
       }
+    } catch (error) {
+      console.log(error);
+      setError('An error occurred during authentication.');
     }
   };
 
