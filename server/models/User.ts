@@ -1,13 +1,13 @@
 import mongoose, { Document } from 'mongoose';
 
-export interface IUser extends Document {
+export interface UserType extends Document {
   firstName: string;
   lastName: string;
   email: string;
   password: string;
 }
 
-const UserSchema = new mongoose.Schema<IUser>(
+const UserSchema = new mongoose.Schema<UserType>(
   {
     firstName: {
       type: String,
@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema<IUser>(
     email: {
       type: String,
       required: true,
-      unique: true, 
+      unique: true,
       max: 50,
     },
     password: {
@@ -36,5 +36,5 @@ const UserSchema = new mongoose.Schema<IUser>(
   { timestamps: true }
 );
 
-const User = mongoose.model<IUser>('User', UserSchema);
+const User = mongoose.model<UserType>('User', UserSchema);
 export default User;
