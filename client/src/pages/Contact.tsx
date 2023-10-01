@@ -17,7 +17,7 @@ export type ClassItem = {
   title: string;
 };
 
-function Login() {
+function Contact() {
   const { title, info, mainText } = text;
   const [email, setEmail] = useState<string>('');
   const [fullName, setFullName] = useState<string>('');
@@ -130,4 +130,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Contact;
