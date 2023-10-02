@@ -149,7 +149,7 @@ function Contact() {
 
               {showTextarea ? (
                 <textarea
-                  placeholder="Comment"
+                  placeholder="Comment*"
                   className="w-full py-[12px] px-[20px] h-[140px] text-[14px] border border-solid border-[#e4e4e4] outline-none mb-8"
                   value={comment}
                   required
@@ -161,7 +161,12 @@ function Contact() {
                 </p>
               )}
 
-              {!user && <span className="flex">*Required fields</span>}
+              {!user ||
+              (user && fullName.trim() === '') ||
+              (user && email.trim() === '') ||
+              (user && comment.trim() === '') ? (
+                <span className="flex">* Required field</span>
+              ) : null}
 
               <SmallButton
                 type="submit"
