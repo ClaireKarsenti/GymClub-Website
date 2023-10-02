@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
+import contactRoutes from './routes/contactRoutes.js';
 
 /* CONFIGURATIONS */
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.json());
 
 /* ROUTES */
 app.use('/auth', authRoutes);
+app.use('/contact', contactRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;

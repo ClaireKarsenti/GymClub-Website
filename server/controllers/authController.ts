@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt, { Secret } from 'jsonwebtoken';
-import User, { IUser } from '../models/User.js';
+import User, { UserType } from '../models/User.js';
 import { Request, Response } from 'express';
 
 /* REGISTER USER */
@@ -39,10 +39,11 @@ export const register = async (
   }
 };
 
+/* LOGIN USER */
 export const login = async (req: Request, res: Response): Promise<Response> => {
   try {
     const { email, password } = req.body;
-    const user: IUser | null = await User.findOne({ email: email });
+    const user: UserType | null = await User.findOne({ email: email });
     if (!user) return res.status(400).json({ msg: 'User does not exist.' });
 
     const isMatch: boolean = await bcrypt.compare(password, user.password);
