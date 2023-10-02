@@ -5,6 +5,7 @@ type InputType = {
   type: string;
   value?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?:boolean;
 };
 
 const Input = ({
@@ -14,6 +15,7 @@ const Input = ({
   type,
   value,
   onChange,
+  required,
 }: InputType) => {
   return (
     <div>
@@ -26,6 +28,7 @@ const Input = ({
         type={type}
         onChange={onChange}
         value={value}
+        required={required}
       />
     </div>
   );
