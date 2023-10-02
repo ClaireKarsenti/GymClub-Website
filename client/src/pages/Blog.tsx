@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import BlogBox from 'components/partials/BlogBox/BlogBox';
 import Footer from 'components/structure/Footer/Footer';
 import { blogContent, categories, tags } from 'data/pages/BlogData';
@@ -13,6 +13,9 @@ function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedTag, setSelectedTag] = useState('');
+  const recentPostRefs = useRef<Array<HTMLElement | null>>([]);
+  const selectedRecentPostIndex = useRef<number | null>(null);
+  const articleRefs = useRef<Array<HTMLElement | null>>([]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -46,6 +49,18 @@ function Blog() {
       ? filteredByCategory.filter((blog) => blog.theme === selectedTag)
       : filteredByCategory;
 
+  const scrollToArticle = (index: number) => {
+    selectedRecentPostIndex.current = index;
+    if (recentPostRefs.current[index]) {
+      recentPostRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      setSelectedCategory('All');
+      if (articleRefs.current[index]) {
+        articleRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <>
       <section>
@@ -68,6 +83,7 @@ function Blog() {
                   title={blog.title}
                   writeAt={blog.writeAt}
                   theme={blog.theme}
+                  ref={(el) => (articleRefs.current[index] = el)}
                 />
               ))
             )}
@@ -159,7 +175,10 @@ function Blog() {
                       <p className="text-[14px] text-[#646464] font-medium">
                         {post.writeAt}, {new Date().getFullYear()}
                       </p>
-                      <p className="text-[16px] text-black hover:text-[#ff0336] ease-in duration-200 cursor-pointer font-bold">
+                      <p
+                        className="text-[16px] text-black hover:text-[#ff0336] ease-in duration-200 cursor-pointer font-bold"
+                        onClick={() => scrollToArticle(index)}
+                      >
                         {post.title}
                       </p>
                     </div>
