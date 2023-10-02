@@ -11,6 +11,7 @@ import {
   Classes,
   Price,
   Blog,
+  BlogPost,
   Schedule,
   GalleryPage,
   GalleryGrid,
@@ -32,6 +33,8 @@ function App() {
         <Route path="classes" element={<Classes />} />
         <Route path="pricing" element={<Price />} />
         <Route path="blog" element={<Blog />} />
+        <Route path="blog/:postId" element={<BlogPost />} />
+
         <Route path="about" element={<About />} />
 
         <Route path="schedule" element={<Schedule />}>

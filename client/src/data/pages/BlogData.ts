@@ -13,6 +13,7 @@ import Recent5 from 'assets/images/blogpage/recent5.jpg';
 import Recent6 from 'assets/images/blogpage/recent6.jpg';
 
 export type BlogContent = {
+  postId: string;
   img: string;
   title: string;
   writeAt: string;
@@ -20,42 +21,49 @@ export type BlogContent = {
 };
 export const blogContent: BlogContent[] = [
   {
+    postId: "post1",
     img: Img1,
     title: 'Yoga For Everyone in 2022',
     writeAt: 'February 25',
     theme: 'Yoga',
   },
   {
+    postId: "post2",
     img: Img2,
     title: 'Getting Back Into CrossFit After Vacation',
     writeAt: 'March 11',
     theme: 'Crossfit',
   },
   {
+    postId: "post3",
     img: Img3,
     title: 'Meet Fitness Ambassador Grace',
     writeAt: 'March 15',
     theme: 'Fitness',
   },
   {
+    postId: "post4",
     img: Img4,
     title: 'The Best are European Materials Direct',
     writeAt: 'April 20',
     theme: 'Meditation',
   },
   {
+    postId: "post5",
     img: Img5,
     title: 'Give your Fitness a Boost with our Gym',
     writeAt: 'June 5',
     theme: 'Boxing',
   },
   {
+    postId: "post6",
     img: Img6,
     title: 'How to Get Fit Your Kids Moving Throughout The Summer',
     writeAt: 'July 30',
     theme: 'Fitness',
   },
   {
+    postId: "post7",
     img: Img7,
     title: 'Give your fitness a boost with our new gym challenge',
     writeAt: 'August 11',

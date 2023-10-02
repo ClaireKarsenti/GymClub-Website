@@ -79,6 +79,7 @@ function Blog() {
               filteredByCategory.map((blog, index) => (
                 <BlogBox
                   key={index}
+                  postId={blog.postId}
                   img={blog.img}
                   title={blog.title}
                   writeAt={blog.writeAt}
