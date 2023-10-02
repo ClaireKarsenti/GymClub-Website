@@ -25,21 +25,18 @@ type LeaveInfo = {
   placeHolder: string;
   type: string;
   className: string;
-  required: boolean;
 };
 export const leaveInfo: LeaveInfo[] = [
   {
-    placeHolder: 'Full Name',
+    placeHolder: 'Full Name*',
     type: 'text',
     className:
       'w-full py-[12px] px-[20px] h-[51px] text-[14px] border border-solid border-[#e4e4e4] outline-none mb-8',
-    required: false,
   },
   {
     placeHolder: 'Email Address*',
     type: 'email',
     className:
       'w-full py-[12px] px-[20px] h-[51px] text-[14px] border border-solid border-[#e4e4e4] outline-none mb-8',
-    required: true,
   },
 ];

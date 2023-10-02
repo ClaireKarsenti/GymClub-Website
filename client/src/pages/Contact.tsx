@@ -27,6 +27,7 @@ function Contact() {
   const [showTextarea, setShowTextarea] = useState<boolean>(true);
 
   const user = useSelector((state: any) => state.user);
+
   useEffect(() => {
     if (user) {
       setEmail(user.email || '');
@@ -122,14 +123,14 @@ function Contact() {
                   key={index}
                   {...infoItem}
                   onChange={(e) => {
-                    if (infoItem.placeHolder === 'Full Name') {
+                    if (infoItem.placeHolder === 'Full Name*') {
                       setFullName(e.target.value);
-                    } else if (infoItem.placeHolder === 'Email Address') {
+                    } else if (infoItem.placeHolder === 'Email Address*') {
                       setEmail(e.target.value);
                     }
                   }}
                   value={
-                    infoItem.placeHolder === 'Full Name' ? fullName : email
+                    infoItem.placeHolder === 'Full Name*' ? fullName : email
                   }
                   required
                 />
@@ -160,7 +161,7 @@ function Contact() {
                 </p>
               )}
 
-              {!user && <span>*Email address is required</span>}
+              {!user && <span className="flex">*Required fields</span>}
 
               <SmallButton
                 type="submit"
