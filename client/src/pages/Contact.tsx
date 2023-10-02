@@ -146,7 +146,6 @@ function Contact() {
                   <option key={index}>{classItem.title}</option>
                 ))}
               </select>
-
               {showTextarea ? (
                 <textarea
                   placeholder="Comment*"
@@ -160,13 +159,9 @@ function Contact() {
                   Comment sent successfully.
                 </p>
               )}
-
-              {!user ||
-              (user && fullName.trim() === '') ||
-              (user && email.trim() === '') ||
-              (user && comment.trim() === '') ? (
+              {(!fullName.trim() || !email.trim() || !comment.trim()) && (
                 <span className="flex">* Required field</span>
-              ) : null}
+              )}
 
               <SmallButton
                 type="submit"
