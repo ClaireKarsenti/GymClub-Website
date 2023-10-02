@@ -80,10 +80,11 @@ function Blog() {
                 <BlogBox
                   key={index}
                   postId={blog.postId}
-                  img={blog.img}
+                  imgPost={blog.imgPost}
                   title={blog.title}
                   writeAt={blog.writeAt}
                   theme={blog.theme}
+                  content={blog.content}
                   ref={(el) => (articleRefs.current[index] = el)}
                 />
               ))
@@ -168,7 +169,9 @@ function Blog() {
                 {blogContent.map((post, index) => (
                   <div key={index} className="flex gap-8">
                     <img
-                      src={post.img}
+                      src={
+                        post.imgRecentPost ? post.imgRecentPost : post.imgPost
+                      }
                       alt="recent_img"
                       className="w-[10rem]"
                     />

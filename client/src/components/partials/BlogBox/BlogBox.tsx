@@ -6,7 +6,7 @@ import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 
 const BlogBox = forwardRef(
   (
-    { img, title, writeAt, theme, postId }: BlogContent,
+    { imgPost: img, title, writeAt, theme, postId, content }: BlogContent,
     ref: Ref<HTMLDivElement>
   ) => {
     return (
@@ -23,12 +23,7 @@ const BlogBox = forwardRef(
           </p>
           <h2 className="text-[3rem] font-bold mb-6">{title}</h2>
           <p className="font-medium text-[16px] text-[#646464] mb-24">
-            Authoritatively disseminate multimedia-based comprehensive
-            connectivity through market-driven methodologies. Continuously
-            transform integrated outcomes vis-à-vis multidisciplinary
-            manufacturing. Foster thoroughly researched innovation rather than
-            focusing on backend supply, as when an unknown printer took a
-            galley.
+            {content}
           </p>
           <BigButton
             color={`!text-white`}
