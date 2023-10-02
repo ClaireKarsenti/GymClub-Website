@@ -39,7 +39,7 @@ export const blogContent: BlogContent[] = [
     postId: 'post2',
     imgPost: Img2,
     imgRecentPost: Recent2,
-    title: 'Getting back into crossFit after vacation',
+    title: 'Getting back into CrossFit after vacation',
     writeAt: 'March 11',
     theme: 'Crossfit',
     content:
