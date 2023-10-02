@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Footer from 'components/structure/Footer/Footer';
 import SmallButton from 'components/globals/buttons/SmallButton';
@@ -21,6 +21,10 @@ function Contact() {
   const { title, info, mainText } = text;
   const [email, setEmail] = useState<string>('');
   const [fullName, setFullName] = useState<string>('');
+  const [comment, setComment] = useState<string>('');
+  const [selectedClass, setSelectedClass] = useState<string>('');
+  const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
+  const [showTextarea, setShowTextarea] = useState<boolean>(true);
 
   const user = useSelector((state: any) => state.user);
   useEffect(() => {
@@ -30,13 +34,42 @@ function Contact() {
     }
   }, [user]);
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  // };
-
   const uniqueSortedClasses: ClassItem[] = sortClassesAlphabetically(
     uniqueClasses(classesBox)
   );
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('http://localhost:3001/contact/info', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName,
+          email,
+          selectedClass,
+          comment,
+        }),
+      });
+
+      if (response.status === 201) {
+        setSelectedClass('');
+        setComment('');
+        setIsFormSubmitted(true);
+        setShowTextarea(false);
+
+        setTimeout(() => {
+          setShowTextarea(true);
+          setIsFormSubmitted(false);
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('Error submitting comment:', error);
+    }
+  };
 
   return (
     <>
@@ -78,43 +111,65 @@ function Contact() {
             </div>
           </div>
 
-          <form className="flex flex-col pt-[30px] pr-[50px] pb-[50px] pl-[45px] bg-[#f8f8f8] relative md1000:w-[65%] md1000:flex md1000:flex-col md1000:mx-auto md1000:mt-14 min800:w-[90%] min620:w-full">
-            <h3 className="text-[28px] font-bold mb-14">Leave Us Your Info</h3>
-            <span className="bg-[#ff0336] w-[50px] h-[4px] absolute top-[77px]"></span>
-            {leaveInfo.map((infoItem, index) => (
-              <Input
-                key={index}
-                {...infoItem}
-                onChange={(e) => {
-                  if (infoItem.placeHolder === 'Full Name') {
-                    setFullName(e.target.value);
-                  } else if (infoItem.placeHolder === 'Email Address') {
-                    setEmail(e.target.value);
+          <div>
+            <form onSubmit={handleSubmit}>
+              <h3 className="text-[28px] font-bold mb-14">
+                Leave Us Your Info
+              </h3>
+              <span className="bg-[#ff0336] w-[50px] h-[4px] absolute top-[77px]"></span>
+              {leaveInfo.map((infoItem, index) => (
+                <Input
+                  key={index}
+                  {...infoItem}
+                  onChange={(e) => {
+                    if (infoItem.placeHolder === 'Full Name') {
+                      setFullName(e.target.value);
+                    } else if (infoItem.placeHolder === 'Email Address') {
+                      setEmail(e.target.value);
+                    }
+                  }}
+                  value={
+                    infoItem.placeHolder === 'Full Name' ? fullName : email
                   }
-                }}
-                value={infoItem.placeHolder === 'Full Name' ? fullName : email}
-              />
-            ))}
-            <select className="w-full py-[12px] px-[20px] h-[51px] text-[14px] border border-solid border-[#e4e4e4] outline-none mb-8">
-              <option>Select Class</option>
-              {uniqueSortedClasses.map((classItem, index) => (
-                <option key={index}>{classItem.title}</option>
+                  required
+                />
               ))}
-            </select>
-            <textarea
-              placeholder="Comment"
-              className="w-full py-[12px] px-[20px] h-[140px] text-[14px] border border-solid border-[#e4e4e4] outline-none mb-8"
-            />
-            
-            {!user && <span>*Email address is required</span>}
+              <select
+                className="w-full py-[12px] px-[20px] h-[51px] text-[14px] border border-solid border-[#e4e4e4] outline-none mb-8"
+                value={selectedClass}
+                required
+                onChange={(e) => setSelectedClass(e.target.value)}
+              >
+                <option>Select Class</option>
+                {uniqueSortedClasses.map((classItem, index) => (
+                  <option key={index}>{classItem.title}</option>
+                ))}
+              </select>
 
-            <SmallButton
-              type="submit"
-              className="text-white bg-[#ff0336] w-fit py-[15px] px-[30px] font-bold text-[14px] uppercase self-center mt-6"
-            >
-              submit now
-            </SmallButton>
-          </form>
+              {showTextarea ? (
+                <textarea
+                  placeholder="Comment"
+                  className="w-full py-[12px] px-[20px] h-[140px] text-[14px] border border-solid border-[#e4e4e4] outline-none mb-8"
+                  value={comment}
+                  required
+                  onChange={(e) => setComment(e.target.value)}
+                />
+              ) : (
+                <p className="w-full py-[12px] px-[20px] h-[140px] text-[#ff0336] text-[14px] mb-8">
+                  Comment sent successfully.
+                </p>
+              )}
+
+              {!user && <span>*Email address is required</span>}
+
+              <SmallButton
+                type="submit"
+                className="text-white bg-[#ff0336] w-fit py-[15px] px-[30px] font-bold text-[14px] uppercase self-center mt-6"
+              >
+                submit now
+              </SmallButton>
+            </form>
+          </div>
         </div>
 
         <iframe
