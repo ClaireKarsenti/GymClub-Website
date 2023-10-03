@@ -6,13 +6,13 @@ import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 
 const BlogBox = forwardRef(
   (
-    { imgPost: img, title, writeAt, theme, postId, content }: BlogContent,
+    { imgPost, title, writeAt, theme, postId, content }: BlogContent,
     ref: Ref<HTMLDivElement>
   ) => {
     return (
       <>
         <div ref={ref}>
-          <img src={img} alt="blog_img" />
+          <img src={imgPost} alt="blog_img" />
           <p className="font-medium text-[14px] text-[#646464] pt-8 pb-4">
             <FontAwesomeIcon
               icon={faLayerGroup}
