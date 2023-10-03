@@ -43,18 +43,21 @@ function Contact() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/contact/info', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          fullName,
-          email,
-          selectedClass,
-          comment,
-        }),
-      });
+      const response = await fetch(
+        'https://gymate-clairekarsenti.onrender.com/contact/info',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fullName,
+            email,
+            selectedClass,
+            comment,
+          }),
+        }
+      );
 
       if (response.status === 201) {
         setSelectedClass('');
