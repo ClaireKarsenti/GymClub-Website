@@ -26,7 +26,7 @@ function Trainers() {
             </p>
           </div>
 
-          <div className="flex mt-20 ">
+          <div className="flex mt-20 md1000:flex-col gap-20">
             {trainers.map((trainer, index) => (
               <TrainerCard
                 key={index}
