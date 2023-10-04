@@ -5,7 +5,7 @@ export { default as SignUp } from './SignUp';
 export { default as Classes } from './Classes';
 export { default as Price } from './Price';
 export { default as Blog } from './Blog';
-export { default as BlogPost } from './BlogPost';
+export { default as Article } from './Article';
 export { default as About } from './About';
 export { default as Schedule } from './Schedule';
 export { default as GalleryPage } from './Gallery';

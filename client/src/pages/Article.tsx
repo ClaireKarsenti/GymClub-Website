@@ -7,7 +7,7 @@ import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 import BigButton from 'components/globals/buttons/BigButton';
 import Footer from 'components/structure/Footer/Footer';
 
-function BlogPost() {
+function Article() {
   const { postId } = useParams();
 
   const dispatch = useDispatch();
@@ -94,4 +94,4 @@ function BlogPost() {
   );
 }
 
-export default BlogPost;
+export default Article;
