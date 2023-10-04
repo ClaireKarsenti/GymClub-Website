@@ -28,6 +28,7 @@ function Blog() {
             {blogContent.map((item, index) => (
               <BlogBox
                 key={index}
+                postId={item.postId}
                 bgClass={item.bgClass}
                 date={item.date}
                 title={item.title}
