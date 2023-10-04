@@ -1,13 +1,15 @@
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import BlogBox from 'components/partials/BlogBox/BlogBox';
 import Footer from 'components/structure/Footer/Footer';
-import { blogContent, categories, tags } from 'data/pages/BlogData';
+import { categories, tags } from 'data/pages/BlogData';
 import { scrollMedium } from 'utils/helpers/scrollTopHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronRight,
   faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPosts } from '../state/authSlice';
 
 function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,6 +18,32 @@ function Blog() {
   const recentPostRefs = useRef<Array<HTMLElement | null>>([]);
   const selectedRecentPostIndex = useRef<number | null>(null);
   const articleRefs = useRef<Array<HTMLElement | null>>([]);
+  const dispatch = useDispatch();
+
+  const posts = useSelector((state: any) =>
+    Array.isArray(state.posts) ? state.posts : []
+  );
+  const token = useSelector((state: any) => state.token);
+
+  const getPosts = async () => {
+    try {
+      const response = await fetch(
+        'https://gymate-clairekarsenti.onrender.com/posts',
+        {
+          method: 'GET',
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      const data = await response.json();
+      dispatch(setPosts({ posts: data }));
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+  };
+
+  useEffect(() => {
+    getPosts();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -23,7 +51,7 @@ function Blog() {
     setSelectedTag('');
   };
 
-  const filteredBlogContent = blogContent.filter((blog) =>
+  const filteredBlogContent = posts.filter((blog: any) =>
     blog.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -36,7 +64,9 @@ function Blog() {
   const filteredByCategory =
     selectedCategory === 'All'
       ? filteredBlogContent
-      : filteredBlogContent.filter((blog) => blog.theme === selectedCategory);
+      : filteredBlogContent.filter(
+          (blog: any) => blog.theme === selectedCategory
+        );
 
   const handleTagClick = (tag: string) => {
     setSelectedCategory(tag);
@@ -46,7 +76,7 @@ function Blog() {
 
   const filteredByTag =
     selectedTag !== ''
-      ? filteredByCategory.filter((blog) => blog.theme === selectedTag)
+      ? filteredByCategory.filter((blog: any) => blog.theme === selectedTag)
       : filteredByCategory;
 
   const scrollToArticle = (index: number) => {
@@ -76,11 +106,11 @@ function Blog() {
                 We are sorry, there is no article in this category for now.
               </p>
             ) : (
-              filteredByCategory.map((blog, index) => (
+              filteredBlogContent.map((blog: any, index: any) => (
                 <BlogBox
                   key={index}
                   postId={blog.postId}
-                  imgPost={blog.imgPost}
+                  imgPost={`https://gymate-clairekarsenti.onrender.com/assets/${blog.imgPost}`}
                   title={blog.title}
                   writeAt={blog.writeAt}
                   theme={blog.theme}
@@ -150,7 +180,7 @@ function Blog() {
                       (
                       {
                         filteredBlogContent.filter(
-                          (blog) => blog.theme === category
+                          (blog: any) => blog.theme === category
                         ).length
                       }
                       )
@@ -166,12 +196,12 @@ function Blog() {
               </p>
               <span className="w-[40px] h-[3.5px] bg-[#ff0336] mb-7"></span>
               <div className="flex flex-col gap-7">
-                {blogContent.map((post, index) => (
+                {posts.map((post: any, index: any) => (
                   <div key={index} className="flex gap-8">
                     <img
-                      src={
+                      src={`https://gymate-clairekarsenti.onrender.com/assets/${
                         post.imgRecentPost ? post.imgRecentPost : post.imgPost
-                      }
+                      }`}
                       alt="recent_img"
                       className="w-[10rem]"
                     />

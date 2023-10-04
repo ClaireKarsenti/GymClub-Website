@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { blogContent } from 'data/pages/BlogData';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPosts } from '../state/authSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 import BigButton from 'components/globals/buttons/BigButton';
@@ -8,17 +10,37 @@ import Footer from 'components/structure/Footer/Footer';
 function BlogPost() {
   const { postId } = useParams();
 
-  if (!postId) {
-    return (
-      <div>
-        <p>The post you are looking for was not found.</p>
-      </div>
-    );
-  }
+  const dispatch = useDispatch();
 
-  const article = blogContent.find((blog) => blog.postId === postId);
+  const posts = useSelector((state: any) =>
+    Array.isArray(state.posts) ? state.posts : []
+  );
 
-  if (!article) {
+  const token = useSelector((state: any) => state.token);
+
+  const getPosts = async () => {
+    try {
+      const response = await fetch(
+        'https://gymate-clairekarsenti.onrender.com/posts',
+        {
+          method: 'GET',
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      const data = await response.json();
+      dispatch(setPosts({ posts: data }));
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+  };
+
+  useEffect(() => {
+    getPosts();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const article = posts.find((blog: any) => blog.postId === postId);
+
+  if (!postId || !article) {
     return (
       <div>
         <p>The post you are looking for was not found.</p>
@@ -46,7 +68,10 @@ function BlogPost() {
             &nbsp; By <b>Admin</b> | {article.writeAt},{' '}
             {new Date().getFullYear()} | {article.theme}
           </p>
-          <img src={article.imgPost} alt={article.title} />
+          <img
+            src={`https://gymate-clairekarsenti.onrender.com/assets/${article.imgPost}`}
+            alt={article.title}
+          />
         </div>
         <div>
           <p className="font-medium text-[16px] text-[#646464] mb-10">
