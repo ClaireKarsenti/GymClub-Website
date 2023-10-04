@@ -9,14 +9,17 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const authRoutes_js_1 = __importDefault(require("./routes/authRoutes.js"));
 const contactRoutes_js_1 = __importDefault(require("./routes/contactRoutes.js"));
+const postRoutes_js_1 = __importDefault(require("./routes/postRoutes.js"));
 /* CONFIGURATIONS */
 const app = (0, express_1.default)();
 dotenv_1.default.config();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
+app.use('/assets', express_1.default.static('assets'));
 /* ROUTES */
 app.use('/auth', authRoutes_js_1.default);
 app.use('/contact', contactRoutes_js_1.default);
+app.use('/posts', postRoutes_js_1.default);
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
 mongoose_1.default
