@@ -1,12 +1,20 @@
 import { forwardRef, Ref } from 'react';
 import BigButton from '../../globals/buttons/BigButton';
-import { BlogContent } from 'data/pages/BlogData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 
+export type BlogBoxType = {
+  imgPost: string;
+  title: string;
+  writeAt: string;
+  theme: string;
+  postId: string;
+  content: string;
+};
+
 const BlogBox = forwardRef(
   (
-    { imgPost, title, writeAt, theme, postId, content }: BlogContent,
+    { imgPost, title, writeAt, theme, postId, content }: BlogBoxType,
     ref: Ref<HTMLDivElement>
   ) => {
     return (
