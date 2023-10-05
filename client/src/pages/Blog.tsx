@@ -86,7 +86,7 @@ function Blog() {
                   We are sorry, there is no article in this category for now.
                 </p>
               ) : (
-                filteredBlogContent.map((blog: any, index: any) => (
+                filteredByCategory.map((blog: any, index: any) => (
                   <BlogBox
                     key={index}
                     postId={blog.postId}
