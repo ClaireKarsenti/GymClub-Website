@@ -57,7 +57,7 @@ function Testimonials() {
                 ))}
               </div>
 
-              <div className="flex gap-3 absolute bottom-[25px] right-[35px] z-20 min540:-bottom-[52px] min540:right-[17px]">
+              <div className="flex gap-3 absolute bottom-[25px] right-[35px] z-20 min540:-bottom-[145px] min540:right-[17px]">
                 <SmallButton
                   title="left"
                   onClick={handleLeftClick}
