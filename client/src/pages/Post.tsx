@@ -1,45 +1,15 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { setPosts } from '../state/authSlice';
+import { useSelector } from 'react-redux';
+import { useGetPosts } from 'hooks/useGetPosts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 import BigButton from 'components/globals/buttons/BigButton';
 import Footer from 'components/structure/Footer/Footer';
 
 const Post = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const { postId } = useParams();
-
-  const dispatch = useDispatch();
-
-  const posts = useSelector((state: any) =>
-    Array.isArray(state.posts) ? state.posts : []
-  );
-
   const token = useSelector((state: any) => state.token);
-
-  const getPosts = async () => {
-    try {
-      const response = await fetch(
-        'https://gymate-clairekarsenti.onrender.com/posts',
-        {
-          method: 'GET',
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-      const data = await response.json();
-      dispatch(setPosts({ posts: data }));
-      setIsLoading(false);
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getPosts();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  const { isLoading, posts } = useGetPosts(token);
+  const { postId } = useParams();
 
   const post = posts.find((blog: any) => blog.postId === postId);
 
