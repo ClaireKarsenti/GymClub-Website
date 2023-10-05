@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPosts } from '../state/authSlice';
@@ -8,6 +8,7 @@ import BigButton from 'components/globals/buttons/BigButton';
 import Footer from 'components/structure/Footer/Footer';
 
 const Post = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const { postId } = useParams();
 
   const dispatch = useDispatch();
@@ -29,8 +30,10 @@ const Post = () => {
       );
       const data = await response.json();
       dispatch(setPosts({ posts: data }));
+      setIsLoading(false);
     } catch (error) {
       console.error('Error fetching posts:', error);
+      setIsLoading(false);
     }
   };
 
@@ -47,7 +50,9 @@ const Post = () => {
           Post
         </h1>
       </div>
-      {!postId || !post ? (
+      {isLoading ? (
+        <div className="loader flex justify-center items-center m-auto mt-[5rem]"></div>
+      ) : !postId || !post ? (
         <div className="flex flex-col items-center justify-center">
           <p className="font-medium text-[2rem] text-[#646464] mt-9 text-center">
             The post you are looking for was not found.
@@ -98,7 +103,6 @@ const Post = () => {
           </div>
         </>
       )}
-
       <Footer />
     </section>
   );
