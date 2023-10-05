@@ -37,7 +37,7 @@ function Testimonials() {
             />
           </div>
 
-          <div className="border-[#efefef] mt-[17rem] md1000:mt-[9rem] bg-white border-solid border-[9px] p-[30px] min540:h-[48rem] min375:h-[60rem]">
+          <div className="border-[#efefef] mt-[17rem] md1000:mt-[9rem] bg-white border-solid border-[9px] p-[30px] min540:h-[58rem] min375:h-[70rem]">
             <div className="bg-black overflow-x-clip w-full h-[33rem] relative">
               <img
                 alt="girl_img"
