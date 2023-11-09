@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useGetPosts } from 'hooks/useGetPosts';
+import Posts from 'hooks/useGetPosts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 import BigButton from 'components/globals/buttons/BigButton';
@@ -8,10 +8,10 @@ import Footer from 'components/structure/Footer/Footer';
 
 const Post = () => {
   const token = useSelector((state: any) => state.token);
-  const { isLoading, posts } = useGetPosts(token);
+  const postService = new Posts(token);
+  const { isLoading, posts } = postService.useGetPosts();
   const { postId } = useParams();
-
-  const post = posts.find((blog: any) => blog.postId === postId);
+  const post = posts?.find((blog: any) => blog.postId === postId);
 
   return (
     <section>

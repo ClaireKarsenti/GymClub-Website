@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { useGetPosts } from 'hooks/useGetPosts';
+import Posts from 'hooks/useGetPosts';
 import BlogBox from 'components/partials/BlogBox/BlogBox';
 import Footer from 'components/structure/Footer/Footer';
 import { categories, tags } from 'data/pages/BlogData';
@@ -13,7 +13,8 @@ import {
 
 function Blog() {
   const token = useSelector((state: any) => state.token);
-  const { isLoading, posts } = useGetPosts(token);
+  const postService = new Posts(token);
+  const { isLoading, posts } = postService.useGetPosts();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
