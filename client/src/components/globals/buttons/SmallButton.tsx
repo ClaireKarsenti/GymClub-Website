@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type SmallButtonProps = {
@@ -6,7 +6,6 @@ type SmallButtonProps = {
   onClick?: (e: any) => void;
   style?: React.CSSProperties;
   className?: string;
-  children?: ReactNode;
   type?: 'button' | 'submit' | 'reset';
   to?: string;
   onMouseEnter?: () => void;
@@ -23,7 +22,7 @@ const SmallButton = ({
   to,
   onMouseEnter,
   onMouseLeave,
-}: SmallButtonProps) => {
+}: PropsWithChildren<SmallButtonProps>) => {
   const navigate = useNavigate();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
