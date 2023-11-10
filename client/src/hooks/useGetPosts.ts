@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setPosts } from 'state/authSlice';
 
 interface Post {
-  _id: string;
   postId: string;
   imgPost?: string;
   imgRecentPost?: string;
@@ -12,7 +11,6 @@ interface Post {
   theme: string;
   content: string;
   details?: string;
-  createdAt: string;
   updatedAt: string;
 }
 
@@ -59,7 +57,6 @@ class Posts {
         await this.fetchData();
         dispatch(setPosts(this._posts));
         setState({ isLoading: this._isLoading, posts: this._posts });
-        console.log('posts:', this._posts);
       };
 
       fetchDataAndDispatch();
