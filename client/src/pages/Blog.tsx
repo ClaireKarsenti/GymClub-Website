@@ -1,10 +1,8 @@
-import { useState, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useBlog } from 'utils/controllers/BlogController';
 import Posts from 'hooks/useGetPosts';
 import BlogBox from 'components/partials/BlogBox/BlogBox';
 import Footer from 'components/structure/Footer/Footer';
 import { categories, tags } from 'data/pages/BlogData';
-import { scrollMedium } from 'utils/helpers/scrollTopHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronRight,
@@ -12,62 +10,23 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 function Blog() {
-  const token = useSelector((state: any) => state.token);
+  const {
+    controller,
+    handleSearch,
+    handleCategoryClick,
+    filteredBlogContent,
+    selectedCategory,
+    selectedTag,
+    filteredByCategory,
+    filteredByTag,
+    scrollToArticle,
+    handleTagClick,
+    articleRefs,
+  } = useBlog();
+
+  const token = controller.state.token;
   const postService = new Posts(token);
   const { isLoading, posts } = postService.useGetPosts();
-
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedTag, setSelectedTag] = useState('');
-  const recentPostRefs = useRef<Array<HTMLElement | null>>([]);
-  const selectedRecentPostIndex = useRef<number | null>(null);
-  const articleRefs = useRef<Array<HTMLElement | null>>([]);
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-    setSelectedCategory('All');
-    setSelectedTag('');
-  };
-
-  const filteredBlogContent = posts.filter((blog: any) =>
-    blog.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const handleCategoryClick = (category: string) => {
-    setSelectedCategory(category);
-    setSelectedTag('');
-    scrollMedium();
-  };
-
-  const filteredByCategory =
-    selectedCategory === 'All'
-      ? filteredBlogContent
-      : filteredBlogContent.filter(
-          (blog: any) => blog.theme === selectedCategory
-        );
-
-  const handleTagClick = (tag: string) => {
-    setSelectedCategory(tag);
-    setSelectedTag(tag);
-    scrollMedium();
-  };
-
-  const filteredByTag =
-    selectedTag !== ''
-      ? filteredByCategory.filter((blog: any) => blog.theme === selectedTag)
-      : filteredByCategory;
-
-  const scrollToArticle = (index: number) => {
-    selectedRecentPostIndex.current = index;
-    if (recentPostRefs.current[index]) {
-      recentPostRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      setSelectedCategory('All');
-      if (articleRefs.current[index]) {
-        articleRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
 
   return (
     <>
@@ -108,7 +67,7 @@ function Blog() {
                   className="border-solid border-[1px] text-[#444] text-[16px] font-medium h-[60px] py-[5px] px-[20px] w-full rounded-tl-xl rounded-bl-xl outline-none"
                   type="search"
                   placeholder="Search..."
-                  value={searchQuery}
+                  value={controller.state.searchQuery}
                   onChange={handleSearch}
                 ></input>
                 <button type="submit">
