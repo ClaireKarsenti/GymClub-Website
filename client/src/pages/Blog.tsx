@@ -12,16 +12,13 @@ import {
 function Blog() {
   const {
     controller,
-    handleSearch,
-    handleCategoryClick,
     filteredBlogContent,
     selectedCategory,
     selectedTag,
     filteredByCategory,
     filteredByTag,
-    scrollToArticle,
-    handleTagClick,
     articleRefs,
+    recentPostRefs,
   } = useBlog();
 
   const token = controller.state.token;
@@ -68,7 +65,7 @@ function Blog() {
                   type="search"
                   placeholder="Search..."
                   value={controller.state.searchQuery}
-                  onChange={handleSearch}
+                  onChange={controller.handleSearch}
                 ></input>
                 <button type="submit">
                   <FontAwesomeIcon
@@ -90,7 +87,7 @@ function Blog() {
                         ? 'font-bold text-[#ff0336]'
                         : ''
                     }`}
-                    onClick={() => handleCategoryClick('All')}
+                    onClick={() => controller.handleCategoryClick('All')}
                   >
                     <p>
                       <FontAwesomeIcon
@@ -109,7 +106,7 @@ function Blog() {
                           ? 'font-bold text-[#ff0336]'
                           : ''
                       }`}
-                      onClick={() => handleCategoryClick(category)}
+                      onClick={() => controller.handleCategoryClick(category)}
                     >
                       <p>
                         <FontAwesomeIcon
@@ -153,7 +150,13 @@ function Blog() {
                         </p>
                         <p
                           className="text-[16px] text-black hover:text-[#ff0336] ease-in duration-200 cursor-pointer font-bold"
-                          onClick={() => scrollToArticle(index)}
+                          onClick={() =>
+                            controller.scrollToArticle(
+                              index,
+                              recentPostRefs,
+                              articleRefs
+                            )
+                          }
                         >
                           {post.title}
                         </p>
@@ -175,7 +178,7 @@ function Blog() {
                       className={`bg-white py-[4px] px-[14px] hover:text-[#ff0336] ease-in duration-200 cursor-pointer ${
                         selectedTag === tag ? 'font-bold' : ''
                       }`}
-                      onClick={() => handleTagClick(tag)}
+                      onClick={() => controller.handleTagClick(tag)}
                     >
                       #{tag}
                     </p>

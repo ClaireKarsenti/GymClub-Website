@@ -29,6 +29,48 @@ export class BlogController {
   updateState(newState: Partial<BlogState>) {
     this._stateController.updateState(newState);
   }
+
+  handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.updateState({
+      searchQuery: e.target.value,
+      selectedCategory: 'All',
+      selectedTag: '',
+    });
+  };
+
+  handleCategoryClick = (category: string) => {
+    this.updateState({
+      selectedCategory: category,
+      selectedTag: '',
+    });
+    scrollMedium();
+  };
+
+  handleTagClick = (tag: string) => {
+    this.updateState({
+      selectedCategory: tag,
+      selectedTag: tag,
+    });
+    scrollMedium();
+  };
+
+  scrollToArticle = (
+    index: number,
+    recentPostRefs: React.MutableRefObject<Array<HTMLElement | null>>,
+    articleRefs: React.MutableRefObject<Array<HTMLElement | null>>
+  ) => {
+    if (recentPostRefs.current[index]) {
+      recentPostRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      this.updateState({
+        selectedCategory: 'All',
+        selectedTag: '',
+      });
+      if (articleRefs.current[index]) {
+        articleRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 }
 
 export const useBlog = () => {
@@ -49,27 +91,11 @@ export const useBlog = () => {
   const postService = new Posts(state.token);
   const { posts } = postService.useGetPosts();
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    controller.updateState({
-      searchQuery: e.target.value,
-      selectedCategory: 'All',
-      selectedTag: '',
-    });
-  };
-
   const filteredBlogContent = posts.filter((blog: any) =>
     blog.title
       .toLowerCase()
       .includes(controller.state.searchQuery.toLowerCase())
   );
-
-  const handleCategoryClick = (category: string) => {
-    controller.updateState({
-      selectedCategory: category,
-      selectedTag: '',
-    });
-    scrollMedium();
-  };
 
   const selectedCategory = controller.state.selectedCategory;
   const selectedTag = controller.state.selectedTag;
@@ -81,49 +107,22 @@ export const useBlog = () => {
           (blog: any) => blog.theme === selectedCategory
         );
 
-  const handleTagClick = (tag: string) => {
-    controller.updateState({
-      selectedCategory: tag,
-      selectedTag: tag,
-    });
-    scrollMedium();
-  };
-
   const filteredByTag =
     selectedTag !== ''
       ? filteredByCategory.filter((blog: any) => blog.theme === selectedTag)
       : filteredByCategory;
 
   const recentPostRefs = useRef<Array<HTMLElement | null>>([]);
-  const selectedRecentPostIndex = useRef<number | null>(null);
   const articleRefs = useRef<Array<HTMLElement | null>>([]);
-
-  const scrollToArticle = (index: number) => {
-    selectedRecentPostIndex.current = index;
-    if (recentPostRefs.current[index]) {
-      recentPostRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      controller.updateState({
-        selectedCategory: 'All',
-        selectedTag: '',
-      });
-      if (articleRefs.current[index]) {
-        articleRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
 
   return {
     controller,
-    handleSearch,
-    handleCategoryClick,
     filteredBlogContent,
     selectedCategory,
     selectedTag,
     filteredByCategory,
     filteredByTag,
-    scrollToArticle,
-    handleTagClick,
     articleRefs,
+    recentPostRefs,
   };
 };
