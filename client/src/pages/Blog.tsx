@@ -12,16 +12,15 @@ import {
 function Blog() {
   const {
     controller,
+    state,
     filteredBlogContent,
-    selectedCategory,
-    selectedTag,
     filteredByCategory,
     filteredByTag,
     articleRefs,
     recentPostRefs,
   } = useBlog();
 
-  const token = controller.state.token;
+  const token = state.token;
   const postService = new Posts(token);
   const { isLoading, posts } = postService.useGetPosts();
 
@@ -64,7 +63,7 @@ function Blog() {
                   className="border-solid border-[1px] text-[#444] text-[16px] font-medium h-[60px] py-[5px] px-[20px] w-full rounded-tl-xl rounded-bl-xl outline-none"
                   type="search"
                   placeholder="Search..."
-                  value={controller.state.searchQuery}
+                  value={state.searchQuery}
                   onChange={controller.handleSearch}
                 ></input>
                 <button type="submit">
@@ -83,7 +82,7 @@ function Blog() {
                 <ul className="text-[16px] text-[#7e7e7e] font-medium mt-10">
                   <li
                     className={`cursor-pointer flex justify-between border-b border-[#dcd9d9] pb-6 mb-10 hover:text-[#ff0336] ease-in duration-200 ${
-                      selectedCategory === 'All'
+                      state.selectedCategory === 'All'
                         ? 'font-bold text-[#ff0336]'
                         : ''
                     }`}
@@ -102,7 +101,7 @@ function Blog() {
                     <li
                       key={index}
                       className={`cursor-pointer flex justify-between border-b border-[#dcd9d9] pb-6 mb-10 hover:text-[#ff0336] ease-in duration-200 ${
-                        selectedCategory === category
+                        state.selectedCategory === category
                           ? 'font-bold text-[#ff0336]'
                           : ''
                       }`}
@@ -176,7 +175,7 @@ function Blog() {
                     <p
                       key={index}
                       className={`bg-white py-[4px] px-[14px] hover:text-[#ff0336] ease-in duration-200 cursor-pointer ${
-                        selectedTag === tag ? 'font-bold' : ''
+                        state.selectedTag === tag ? 'font-bold' : ''
                       }`}
                       onClick={() => controller.handleTagClick(tag)}
                     >

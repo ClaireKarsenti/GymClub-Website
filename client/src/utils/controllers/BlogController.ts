@@ -94,22 +94,21 @@ export const useBlog = () => {
   const filteredBlogContent = posts.filter((blog: any) =>
     blog.title
       .toLowerCase()
-      .includes(controller.state.searchQuery.toLowerCase())
+      .includes(state.searchQuery.toLowerCase())
   );
 
-  const selectedCategory = controller.state.selectedCategory;
-  const selectedTag = controller.state.selectedTag;
-
   const filteredByCategory =
-    selectedCategory === 'All'
+    state.selectedCategory === 'All'
       ? filteredBlogContent
       : filteredBlogContent.filter(
-          (blog: any) => blog.theme === selectedCategory
+          (blog: any) => blog.theme === state.selectedCategory
         );
 
   const filteredByTag =
-    selectedTag !== ''
-      ? filteredByCategory.filter((blog: any) => blog.theme === selectedTag)
+    state.selectedTag !== ''
+      ? filteredByCategory.filter(
+          (blog: any) => blog.theme === state.selectedTag
+        )
       : filteredByCategory;
 
   const recentPostRefs = useRef<Array<HTMLElement | null>>([]);
@@ -117,9 +116,8 @@ export const useBlog = () => {
 
   return {
     controller,
-    filteredBlogContent,
-    selectedCategory,
-    selectedTag,
+    state,
+    filteredBlogContent,    
     filteredByCategory,
     filteredByTag,
     articleRefs,
