@@ -32,7 +32,7 @@ function Footer() {
                 ))}
               </div>
               <p className="text-[16px] font-medium text-[#646464]">
-                Privacy Policy | ©{new Date().getFullYear()} Gymate <br /> Code
+                Privacy Policy | ©{new Date().getFullYear()} Gymate <br /> Coded
                 with <FontAwesomeIcon icon={faHeart} /> by{' '}
                 <a
                   target="_blank"
